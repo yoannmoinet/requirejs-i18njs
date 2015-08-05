@@ -1,0 +1,15 @@
+{
+  "version": "0.0.0",
+  "name": "requirejsI18Njs",
+  "homepage": "https://github.com/yoannmoinet/requirejsI18Njs",
+  "author": "Yoann Moinet <yoann.moinet@gmail.com>",
+  "description": "A requirejs plugin to pre-compile I18NJS' translations",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "dependencies": {}
+}
+

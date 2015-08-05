@@ -1,0 +1,40 @@
+{
+  "version": "0.0.1",
+  "name": "requirejs-i18njs",
+  "description": "A requirejs plugin to pre-compile I18NJS' translations",
+  "author": "Yoann Moinet <yoann.moinet@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoannmoinet/requirejs-i18njs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yoannmoinet/requirejs-i18njs/issues"
+  },
+  "homepage": "https://github.com/yoannmoinet/requirejs-i18njs",
+  "main": "./dist/requirejs-i18njs.js",
+  "scripts": {
+    "posttest": "npm run-script lint",
+    "preversion": "npm run-script build",
+    "postversion": "npm run-script bowerSync && npm run-script changelog",
+    "build": "npm test",
+    "pretest": "npm run-script uglify",
+    "test": "mocha",
+    "format": "jscs ./src/requirejs-i18njs.js ./test/requirejs-i18njs.spec.js",
+    "lint": "eslint ./src/requirejs-i18njs.js ./test/requirejs-i18njs.spec.js",
+    "changelog": "node ./bin/changelog.js",
+    "bowerSync": "node ./bin/bowerSync.js",
+    "uglify": "uglifyjs ./src/requirejs-i18njs.js -o ./dist/requirejs-i18njs.min.js -c -m"
+  },
+  "dependencies": {
+    "i18njs": "^2.0.3"
+  },
+  "devDependencies": {
+    "conventional-changelog": "^0.2.1",
+    "eslint": "^1.0.0",
+    "expect.js": "^0.3.1",
+    "jscs": "^2.0.0",
+    "mocha": "^2.2.5",
+    "uglify-js": "^2.4.24"
+  }
+}
