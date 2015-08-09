@@ -1,6 +1,16 @@
-<a name="0.0.2"></a>
-## 0.0.2 (2015-08-09)
+<a name="0.0.3"></a>
+## 0.0.3 (2015-08-09)
 
+
+
+
+<a name="0.0.3"></a>
+## 0.0.3 (2015-08-09)
+
+
+### Bug Fixes
+
+* **builder:** correct path to templateI18njs ([8abcc8b](https://github.com/yoannmoinet/requirejs-i18njs/commit/8abcc8b))
 
 
 
