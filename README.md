@@ -1,5 +1,5 @@
 # requirejs-i18njs
-----
+
 > A [RequireJS](http://requirejs.org/) plugin to pre-compile [I18NJS](https://github.com/yoannmoinet/i18njs)' translations
 
 [![npm version](https://img.shields.io/npm/v/requirejs-i18njs.svg?style=flat)](http://badge.fury.io/js/requirejs-i18njs)
