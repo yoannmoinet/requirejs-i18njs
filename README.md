@@ -2,9 +2,9 @@
 ----
 > A [RequireJS](http://requirejs.org/) plugin to pre-compile [I18NJS](https://github.com/yoannmoinet/i18njs)' translations
 
-[![npm version](https://img.shields.io/npm/v/requirejs-i18njs.svg?style=flat)](http://badge.fury.io/js/i18njs)
-[![bower version](https://img.shields.io/bower/v/requirejs-i18njs.svg?style=flat)](http://bower.io/search/?q=i18njs)
-[![travis](https://travis-ci.org/yoannmoinet/requirejs-i18njs.svg)](https://travis-ci.org/yoannmoinet/i18njs)
+[![npm version](https://img.shields.io/npm/v/requirejs-i18njs.svg?style=flat)](http://badge.fury.io/js/requirejs-i18njs)
+[![bower version](https://img.shields.io/bower/v/requirejs-i18njs.svg?style=flat)](http://bower.io/search/?q=requirejs-i18njs)
+[![travis](https://travis-ci.org/yoannmoinet/requirejs-i18njs.svg)](https://travis-ci.org/yoannmoinet/requirejs-i18njs)
 
 ----
 
