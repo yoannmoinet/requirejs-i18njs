@@ -27,6 +27,7 @@
     "uglify": "uglifyjs ./src/requirejs-i18njs.js -o ./dist/requirejs-i18njs.min.js -c -m"
   },
   "dependencies": {
+    "requirejs-plugins": "^1.0.2",
     "i18njs": "~2.0.*"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "expect.js": "^0.3.1",
     "jscs": "^2.0.0",
     "mocha": "^2.2.5",
+    "requirejs": "^2.1.20",
     "uglify-js": "^2.4.24"
   }
 }
