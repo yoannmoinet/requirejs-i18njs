@@ -27,7 +27,7 @@
     "uglify": "uglifyjs ./src/requirejs-i18njs.js -o ./dist/requirejs-i18njs.min.js -c -m"
   },
   "dependencies": {
-    "i18njs": "^2.0.3"
+    "i18njs": "~2.0.*"
   },
   "devDependencies": {
     "conventional-changelog": "^0.2.1",
