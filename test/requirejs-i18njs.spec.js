@@ -47,7 +47,6 @@ describe('requirejs-i18njs', function () {
 
     it('should build the file', function (done) {
         exec('node ' + pathBuilder + ' -o ./test/files/build.js', function (err) {
-            console.log(err, process.cwd());
             expect(fs.existsSync('./test/files/temp/main.built.js')).to.be.ok();
             done(err);
         });
@@ -55,7 +54,6 @@ describe('requirejs-i18njs', function () {
 
     it('should build the file with new delimiters', function (done) {
         exec('node ' + pathBuilder + ' -o ./test/files/build.deli.js', function (err) {
-            console.log(err, process.cwd());
             expect(fs.existsSync('./test/files/temp/main.deli.built.js')).to.be.ok();
             done(err);
         });

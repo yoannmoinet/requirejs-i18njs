@@ -2,7 +2,7 @@ define(function () {
     var fs = nodeRequire('fs');
     var buildMap = {};
     // Get the template builder.
-    var template = nodeRequire('../../../../i18njs/bin/templateI18njs.js');
+    var template = nodeRequire('i18njs/bin/templateI18njs.js');
     // Simple self iterative function
     var parse = function (obj, fn) {
         for (var i in obj) {
