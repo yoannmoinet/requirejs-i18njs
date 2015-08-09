@@ -1,6 +1,7 @@
 var fs = require('fs');
 var bower = require('../bower.json');
 var pkg = require('../package.json');
+var exec = require('child_process').exec;
 
 // Update Bower's version to follow NPM's
 bower.version = pkg.version;
