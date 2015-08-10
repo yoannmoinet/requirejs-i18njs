@@ -1,6 +1,21 @@
-<a name="0.0.3"></a>
-## 0.0.3 (2015-08-09)
+<a name="0.1.0"></a>
+# 0.1.0 (2015-08-10)
 
+
+
+
+<a name="0.1.0"></a>
+# 0.1.0 (2015-08-10)
+
+
+### Bug Fixes
+
+* **package:** rename plugin to avoid collision with i18njs ([2209264](https://github.com/yoannmoinet/requirejs-i18njs/commit/2209264))
+
+### Features
+
+* support keys with spaces ([3092878](https://github.com/yoannmoinet/requirejs-i18njs/commit/3092878))
+* support loading parameters ([5b01f58](https://github.com/yoannmoinet/requirejs-i18njs/commit/5b01f58))
 
 
 
