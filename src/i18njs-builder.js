@@ -32,7 +32,7 @@ define(function () {
 
             // Find the package's config
             pkgs.forEach(function (pkg, key) {
-                if (pkg.name === 'i18njs') {
+                if (pkg.name === 'i18n') {
                     localConfig = pkg;
                 }
             });

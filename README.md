@@ -47,7 +47,7 @@ You'll have to configure a new [package](http://requirejs.org/docs/api.html#conf
 ({
     packages: [
         {
-            'name': 'i18njs',
+            'name': 'i18n',
             // The location where the package is installed
             'location': './node_modules/requirejs-i18njs/src/',
             // The main file
@@ -63,7 +63,7 @@ You can also configure some new delimiters for your templates :
 ({
     packages: [
         {
-            'name': 'i18njs',
+            'name': 'i18n',
             'location': './node_modules/requirejs-i18njs/src/',
             'main': 'requirejs-i18njs',
             'delimiters': {

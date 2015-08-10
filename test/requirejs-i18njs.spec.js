@@ -18,7 +18,7 @@ describe('requirejs-i18njs', function () {
             nodeRequire: require,
             packages: [
                 {
-                    'name': 'i18njs',
+                    'name': 'i18n',
                     'location': '../../src/',
                     'main': 'requirejs-i18njs'
                 }
