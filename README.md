@@ -39,6 +39,7 @@ npm test
 ----
 
 ## Usage
+### Configuration
 To use with [RequireJS](http://requirejs.org/) and [I18NJS](https://github.com/yoannmoinet/i18njs).
 
 You'll have to configure a new [package](http://requirejs.org/docs/api.html#config-packages) in your RequireJS' config.
@@ -76,3 +77,29 @@ You can also configure some new delimiters for your templates :
 })
 ```
 This will result in pre-compiling delimiters in the form of `<%=interpolate%>`, `<%evaluate%>` or `<%-escape%>`.
+
+### Usage
+You'll then be able to import your locales with :
+
+```javascript
+var fr = require('i18n!./locales/fr.json');
+i18njs.add('fr', fr);
+```
+
+Also, you can tell which language you want to subscribe your strings to by providing the lang as a parameter :
+
+```javascript
+require('i18n!./locales/fr.json?lang=fr');
+```
+It will execute `i18n.add('fr', locales);` directly from the plugin.
+
+For this to work, you'll need to have [I18NJS](https://github.com/yoannmoinet/i18njs) imported first.
+
+You can use your [`require.config.deps`](http://requirejs.org/docs/api.html#config-deps) for this :
+```javascript
+require.config({
+    // Note that this is at the root of the config.
+    deps: ['i18njs']
+});
+```
+This will load `i18njs` before everything else.
