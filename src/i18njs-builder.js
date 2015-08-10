@@ -21,7 +21,7 @@ define(function () {
 
     return {
         load: function (name, req, onload, config) {
-            var toLoad = req.toUrl(name);
+            var toLoad = req.toUrl(name).split('?')[0];
             // We load the file.
             var fileContent = fs.readFileSync(toLoad).toString();
             var localConfig;
@@ -41,7 +41,7 @@ define(function () {
             });
 
             // Replace options passed with the package
-            if (typeof localConfig.delimiters === 'object') {
+            if (localConfig && typeof localConfig.delimiters === 'object') {
                 if (localConfig.delimiters.evaluate &&
                     localConfig.delimiters.interpolate &&
                     localConfig.delimiters.escape) {
@@ -58,8 +58,17 @@ define(function () {
             onload();
         },
         write: function (pluginName, name, write) {
-            var toWrite = 'define(\'i18njs!' + name + '\', [], function () {\n    return ';
             var compiled = {};
+            var args = {};
+
+            // Parse parameters
+            name.split(/(?:\?|\&)/g)
+                .splice(1)
+                .forEach(function (val) {
+                    var vals = val.split('=');
+                    args[vals[0]] = vals[1];
+                });
+
             // Little hack to keep quotes on key names.
             function changeKeys (src, dest) {
                 for (var i in src) {
@@ -74,6 +83,8 @@ define(function () {
 
             changeKeys(buildMap[name], compiled);
 
+            var toWrite = 'define(\'i18n!' + name + '\', [\'i18njs\'], function (i18njs) {\n    var locales = ';
+
             // We clean the stringify to be a simple string
             // parsed as javascript later.
             toWrite += JSON.stringify(compiled)
@@ -85,10 +96,17 @@ define(function () {
                 // Unescape what's too much escaped
                 .replace(/\\\\/g, '\\')
                 // Replace previously saved quotes
-            // TODO : Add quotes for object's keys.
-            toWrite += ';\n});\n';
                 .replace(regexEscapedDoubleQuotes, '\"')
                 .replace(regexEscapedSingleQuotes, '\'');
+
+            toWrite += ';\n';
+
+            // We add locales to the corresponding language if needed.
+            if (args.lang) {
+                toWrite += '    i18njs.add(\'' + args.lang + '\', locales);\n';
+            }
+
+            toWrite += '    return locales;\n});\n';
             write(toWrite);
         }
     }
