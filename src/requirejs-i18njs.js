@@ -1,5 +1,4 @@
 define({
-    version: '0.0.1',
     // Target our builder for the optimizer.
     pluginBuilder: './i18njs-builder',
     load: function (name, req, onload, config) {

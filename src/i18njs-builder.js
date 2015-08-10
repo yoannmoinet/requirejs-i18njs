@@ -16,7 +16,6 @@ define(function () {
     };
 
     return {
-        version: '0.0.1',
         load: function (name, req, onload, config) {
             var toLoad = req.toUrl(name);
             // We load the file.
@@ -46,14 +45,12 @@ define(function () {
                 }
             }
 
-            // Precompile the templates
+            // Pre-compile the templates
+            // and store it for later use.
             // TODO : Make it only if we find moustaches.
-            var result = parse(JSON.parse(fileContent), function (obj) {
+            buildMap[name] = parse(JSON.parse(fileContent), function (obj) {
                 return template(obj, delimiters).source;
             });
-
-            // Store it for later use.
-            buildMap[name] = result;
             onload();
         },
         write: function (pluginName, name, write) {
