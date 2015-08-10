@@ -1,6 +1,10 @@
 define(function () {
     var fs = nodeRequire('fs');
     var buildMap = {};
+    var escapedDoubleQuotes = '__escaped_double_quote';
+    var escapedSingleQuotes = '__escaped_single_quote';
+    var regexEscapedDoubleQuotes = new RegExp(escapedDoubleQuotes, 'g');
+    var regexEscapedSingleQuotes = new RegExp(escapedSingleQuotes, 'g');
     // Get the template builder.
     var template = nodeRequire('i18njs/bin/templateI18njs.js');
     // Simple self iterative function
@@ -54,23 +58,37 @@ define(function () {
             onload();
         },
         write: function (pluginName, name, write) {
-            var compiled = buildMap[name];
             var toWrite = 'define(\'i18njs!' + name + '\', [], function () {\n    return ';
+            var compiled = {};
+            // Little hack to keep quotes on key names.
+            function changeKeys (src, dest) {
+                for (var i in src) {
+                    if (typeof src[i] === 'object') {
+                        dest[escapedSingleQuotes + i + escapedSingleQuotes] = {};
+                        changeKeys(src[i], dest[escapedSingleQuotes + i + escapedSingleQuotes]);
+                    } else {
+                        dest[escapedSingleQuotes + i + escapedSingleQuotes] = src[i];
+                    }
+                }
+            }
+
+            changeKeys(buildMap[name], compiled);
+
             // We clean the stringify to be a simple string
             // parsed as javascript later.
             toWrite += JSON.stringify(compiled)
                 // Save escaped quotes
-                .replace(/\\\"/g, '__escaped_double_quote')
-                .replace(/\\\'/g, '__escaped_single_quote')
+                .replace(/\\\"/g, escapedDoubleQuotes)
+                .replace(/\\\'/g, escapedSingleQuotes)
                 // Remove new lines and double quotes
                 .replace(/(\"|\\r|\\n|(  )+)/g, '')
                 // Unescape what's too much escaped
                 .replace(/\\\\/g, '\\')
                 // Replace previously saved quotes
-                .replace(/__escaped_double_quote/g, '\"')
-                .replace(/__escaped_single_quote/g, '\'');
             // TODO : Add quotes for object's keys.
             toWrite += ';\n});\n';
+                .replace(regexEscapedDoubleQuotes, '\"')
+                .replace(regexEscapedSingleQuotes, '\'');
             write(toWrite);
         }
     }
