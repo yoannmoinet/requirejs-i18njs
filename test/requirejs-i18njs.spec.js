@@ -39,6 +39,7 @@ describe('requirejs-i18njs', function () {
         requirejs(['app'], function (app) {
             expect(app.get('normal')).to.be.eql('simple');
             expect(app.get('interpolate', data)).to.be.eql(data.interpolate);
+            expect(app.get('spaced key')).to.be.eql('key');
             expect(app.get('escape', data)).to.be.eql('&#x27;&lt;the&gt;&#x27; &#x60;&amp;&#x60; &quot;World&quot;');
             expect(app.getDico().en.evaluate).to.be.a('string');
             done();
@@ -69,6 +70,7 @@ describe('requirejs-i18njs', function () {
                 expect(app.get('normal')).to.eql('simple');
                 expect(app.get('interpolate', data)).to.be.eql(data.interpolate);
                 expect(app.get('escape', data)).to.be.eql('&#x27;&lt;the&gt;&#x27; &#x60;&amp;&#x60; &quot;World&quot;');
+                expect(app.get('spaced key')).to.be.eql('key');
                 expect(app.get('namespace.in', data)).to.be.eql('We\'re in &#x27;&lt;the&gt;&#x27; &#x60;&amp;&#x60; &quot;World&quot;');
                 expect(app.getDico().en.evaluate).to.be.a('function');
                 done();
@@ -83,6 +85,7 @@ describe('requirejs-i18njs', function () {
                 expect(app.get('deli.normal')).to.eql('simple');
                 expect(app.get('deli.interpolate', data)).to.be.eql(data.interpolate);
                 expect(app.get('deli.escape', data)).to.be.eql('&#x27;&lt;the&gt;&#x27; &#x60;&amp;&#x60; &quot;World&quot;');
+                expect(app.get('spaced key')).to.be.eql('key');
                 expect(app.get('deli.namespace.in', data)).to.be.eql('We\'re in &#x27;&lt;the&gt;&#x27; &#x60;&amp;&#x60; &quot;World&quot;');
                 expect(app.getDico().en.deli.evaluate).to.be.a('function');
                 done();
