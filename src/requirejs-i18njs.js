@@ -4,14 +4,15 @@ define({
     load: function (name, req, onload, config) {
         var args = {};
         var i18njs;
+        var arName = name.split(/(?:\?|\&)/g);
+        name = arName[0];
 
         if (req.defined('i18njs')) {
             i18njs = req('i18njs');
         }
 
         // Export parameters
-        name.split(/(?:\?|\&)/g)
-            .splice(1)
+        arName.splice(1)
             .forEach(function (val) {
                 var vals = val.split('=');
                 args[vals[0]] = vals[1];
