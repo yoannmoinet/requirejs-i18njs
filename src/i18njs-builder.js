@@ -105,10 +105,12 @@ define(function () {
             // We add locales to the corresponding language if needed.
             if (args.lang) {
                 toWrite += '    i18njs.add(\'' + args.lang + '\', locales);\n';
+            } else if (args.defaults) {
+                toWrite += '    i18njs.setDefaults(locales);\n';
             }
 
             toWrite += '    return locales;\n});\n';
             write(toWrite);
         }
-    }
+    };
 });

@@ -28,6 +28,8 @@ define({
                 // Add to the dico
                 if (args.lang) {
                     i18njs.add(args.lang, raw);
+                } else if (args.defaults) {
+                    i18njs.setDefaults(raw);
                 }
             } else if (args.lang || args.defaults) {
                 console.warn('[requirejs-i18njs]\n' +
