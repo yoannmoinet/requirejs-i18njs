@@ -88,14 +88,21 @@ var fr = require('i18n!./locales/fr.json');
 i18njs.add('fr', fr);
 ```
 
-Also, you can tell which language you want to subscribe your strings to by providing the lang as a parameter :
+Also, you can tell which language you want to subscribe your strings to by providing the `lang` as a parameter :
 
 ```javascript
 require('i18n!./locales/fr.json?lang=fr');
 ```
 It will execute `i18n.add('fr', locales);` directly from the plugin.
 
-For this to work, you'll need to have [I18NJS](https://github.com/yoannmoinet/i18njs) imported first.
+The same is also possible to add new defaults to your configuration by providing the `defaults` parameter :
+
+```javascript
+require('i18n!./locales/defaults.json?defaults=true');
+```
+It will execute `i18n.setDefaults(defaults);` directly from the plugin.
+
+For these to work, you'll need to have [I18NJS](https://github.com/yoannmoinet/i18njs) imported first.
 
 You can use your [`require.config.deps`](http://requirejs.org/docs/api.html#config-deps) for this :
 ```javascript
