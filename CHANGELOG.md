@@ -1,6 +1,22 @@
-<a name="0.1.0"></a>
-# 0.1.0 (2015-08-10)
+<a name="0.2.0"></a>
+# 0.2.0 (2015-10-06)
 
+
+
+
+<a name="0.2.0"></a>
+# 0.2.0 (2015-10-06)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies ([46aed4e](https://github.com/yoannmoinet/requirejs-i18njs/commit/46aed4e))
+* **dev:** correctly control for arguments before automatic action ([f17f991](https://github.com/yoannmoinet/requirejs-i18njs/commit/f17f991))
+* **load:** allow local loading (remove ?args from path) ([64252e7](https://github.com/yoannmoinet/requirejs-i18njs/commit/64252e7))
+
+### Features
+
+* add automatic defaults registration ([171ac00](https://github.com/yoannmoinet/requirejs-i18njs/commit/171ac00))
 
 
 
