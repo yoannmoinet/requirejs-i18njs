@@ -25,10 +25,11 @@ define({
         // Simply load the file as JSON
         req(['json!' + name], function (raw) {
             if (i18njs && typeof i18njs.add === 'function') {
-                //console.log(name, i18njs.getDico());
                 // Add to the dico
-                i18njs.add(args.lang, raw);
-            } else if (args.lang || args.ns) {
+                if (args.lang) {
+                    i18njs.add(args.lang, raw);
+                }
+            } else if (args.lang || args.defaults) {
                 console.warn('[requirejs-i18njs]\n' +
                     'I18nJS isn\'t defined.\n' +
                     'You need to import it before using this plugin to' +
