@@ -30,7 +30,8 @@ define({
             } else if (args.lang || args.ns) {
                 console.warn('[requirejs-i18njs]\n' +
                     'I18nJS isn\'t defined.\n' +
-                    'You need to import it before using this plugin to register your locales.')
+                    'You need to import it before using this plugin to' +
+                        'register your locales.');
             }
             // We're in development, so we deliver the file raw.
             onload(raw);

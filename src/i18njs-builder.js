@@ -45,7 +45,7 @@ define(function () {
                 if (localConfig.delimiters.evaluate &&
                     localConfig.delimiters.interpolate &&
                     localConfig.delimiters.escape) {
-                        delimiters = localConfig.delimiters;
+                    delimiters = localConfig.delimiters;
                 }
             }
 
