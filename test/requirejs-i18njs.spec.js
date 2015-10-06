@@ -14,6 +14,7 @@ describe('requirejs-i18njs', function () {
     before(function (done) {
         // We configure requirejs before each unit.
         requirejs.config({
+            deps: ['i18njs'],
             baseUrl: 'test/files',
             nodeRequire: require,
             packages: [
@@ -44,6 +45,9 @@ describe('requirejs-i18njs', function () {
             expect(app.get('escape', data)).to.be
                 .eql('&#x27;&lt;the&gt;&#x27; ' +
                 '&#x60;&amp;&#x60; &quot;World&quot;');
+            // expect(app.get('keyDefaultEN')).to.be.eql('DefaultEN');
+            // expect(app.get('keyDefault')).to.be.eql('Default');
+            // expect(app.get('keyAuto')).to.be.eql('Automatic');
             expect(app.getDico().en.evaluate).to.be.a('string');
             done();
         });
@@ -85,6 +89,9 @@ describe('requirejs-i18njs', function () {
                     expect(app.get('namespace.in', data)).to.be
                         .eql('We\'re in &#x27;&lt;the&gt;&#x27; ' +
                         '&#x60;&amp;&#x60; &quot;World&quot;');
+                    // expect(app.get('keyDefaultEN')).to.be.eql('DefaultEN');
+                    // expect(app.get('keyDefault')).to.be.eql('Default');
+                    // expect(app.get('keyAuto')).to.be.eql('Automatic');
                     expect(app.getDico().en.evaluate).to.be.a('function');
                     done();
                 });
@@ -106,6 +113,9 @@ describe('requirejs-i18njs', function () {
                     expect(app.get('deli.namespace.in', data)).to.be
                         .eql('We\'re in &#x27;&lt;the&gt;&#x27; ' +
                         '&#x60;&amp;&#x60; &quot;World&quot;');
+                    // expect(app.get('keyDefaultEN')).to.be.eql('DefaultEN');
+                    // expect(app.get('keyDefault')).to.be.eql('Default');
+                    // expect(app.get('keyAuto')).to.be.eql('Automatic');
                     expect(app.getDico().en.deli.evaluate).to.be.a('function');
                     done();
                 });
