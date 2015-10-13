@@ -93,9 +93,10 @@ define(function () {
                             escapedSingleQuotes] = src[i];
                     }
                 }
+                return dest;
             }
 
-            changeKeys(buildMap[name], compiled);
+            compiled = changeKeys(buildMap[name], compiled);
 
             var toWrite = 'define(\'i18n!' + name +
                 '\', [\'i18njs\'], function (i18njs) {\n    var locales = ';
