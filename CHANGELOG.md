@@ -1,6 +1,22 @@
-<a name="0.2.0"></a>
-# 0.2.0 (2015-10-06)
+<a name="0.2.1"></a>
+## 0.2.1 (2015-10-13)
 
+
+
+
+<a name="0.2.1"></a>
+## 0.2.1 (2015-10-13)
+
+
+### Bug Fixes
+
+* check for default function before use ([ade2517](https://github.com/yoannmoinet/requirejs-i18njs/commit/ade2517))
+* remove name splitting because useless ([f849841](https://github.com/yoannmoinet/requirejs-i18njs/commit/f849841))
+* return at the end of `changeKeys` ([be6e1b5](https://github.com/yoannmoinet/requirejs-i18njs/commit/be6e1b5))
+
+### Performance Improvements
+
+* compile template only if delimiters found ([c8b7e7a](https://github.com/yoannmoinet/requirejs-i18njs/commit/c8b7e7a))
 
 
 
