@@ -51,10 +51,21 @@ define(function () {
 
             // Pre-compile the templates
             // and store it for later use.
-            // TODO : Make it only if we find moustaches.
+            // Only returns a function if needed.
             buildMap[name] = parse(JSON.parse(fileContent), function (obj) {
-                return template(obj, delimiters).source;
+                for (var i in delimiters) {
+                    if (delimiters.hasOwnProperty(i)) {
+                        // Check if we have delimiters in the
+                        // locale.
+                        if (delimiters[i].test(obj)) {
+                            return template(obj, delimiters).source;
+                        }
+                    }
+                }
+                // Otherwise, simply return the string wrapped.
+                return '"' + obj + '"';
             });
+
             onload();
         },
         write: function (pluginName, name, write) {
