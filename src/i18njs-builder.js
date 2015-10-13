@@ -84,17 +84,21 @@ define(function () {
             function changeKeys (src, dest) {
                 for (var i in src) {
                     if (typeof src[i] === 'object') {
-                        dest[escapedSingleQuotes + i + escapedSingleQuotes] = {};
-                        changeKeys(src[i], dest[escapedSingleQuotes + i + escapedSingleQuotes]);
+                        dest[escapedSingleQuotes + i +
+                            escapedSingleQuotes] = {};
+                        changeKeys(src[i], dest[escapedSingleQuotes + i +
+                            escapedSingleQuotes]);
                     } else {
-                        dest[escapedSingleQuotes + i + escapedSingleQuotes] = src[i];
+                        dest[escapedSingleQuotes + i +
+                            escapedSingleQuotes] = src[i];
                     }
                 }
             }
 
             changeKeys(buildMap[name], compiled);
 
-            var toWrite = 'define(\'i18n!' + name + '\', [\'i18njs\'], function (i18njs) {\n    var locales = ';
+            var toWrite = 'define(\'i18n!' + name +
+                '\', [\'i18njs\'], function (i18njs) {\n    var locales = ';
 
             // We clean the stringify to be a simple string
             // parsed as javascript later.
