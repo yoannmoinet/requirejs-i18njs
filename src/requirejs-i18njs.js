@@ -5,13 +5,13 @@ define({
         var args = {};
         var i18njs;
         var arName = name.split(/(?:\?|\&)/g);
-        name = arName[0];
 
         if (req.defined('i18njs')) {
             i18njs = req('i18njs');
         }
 
         // Export parameters
+        name = arName[0];
         arName.splice(1)
             .forEach(function (val) {
                 var vals = val.split('=');
@@ -24,7 +24,9 @@ define({
 
         // Simply load the file as JSON
         req(['json!' + name], function (raw) {
-            if (i18njs && typeof i18njs.add === 'function') {
+            if (i18njs &&
+                    typeof i18njs.add === 'function' &&
+                    typeof i18njs.setDefaults === 'function') {
                 // Add to the dico
                 if (args.lang) {
                     i18njs.add(args.lang, raw);
