@@ -71,11 +71,10 @@ define(function () {
         write: function (pluginName, name, write) {
             var compiled = {};
             var args = {};
-            var arName = name.split(/(?:\?|\&)/g);
-            name = arName[0];
 
             // Parse parameters
-            arName.splice(1)
+            name.split(/(?:\?|\&)/g)
+                .splice(1)
                 .forEach(function (val) {
                     var vals = val.split('=');
                     args[vals[0]] = vals[1];
