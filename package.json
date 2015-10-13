@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.2.1",
   "name": "requirejs-i18njs",
   "description": "A requirejs plugin to pre-compile I18NJS' translations",
   "author": "Yoann Moinet <yoann.moinet@gmail.com>",
