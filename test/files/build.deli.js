@@ -1,4 +1,8 @@
 ({
+    deps: ['i18njs'],
+    paths: {
+        i18njs: '../../node_modules/i18njs/dist/i18njs'
+    },
     baseUrl: './',
     name: 'app',
     out: './temp/main.deli.built.js',
@@ -15,4 +19,4 @@
             }
         }
     ]
-})
+});
